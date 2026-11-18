@@ -23,5 +23,5 @@ window.YOUTUBE_URL = "https://www.youtube.com/@livingwaterfarms";
 // PLACEHOLDER — replace with the farm's Google Maps place or pin link
 window.MAPS_URL = "https://maps.google.com/?q=Siliguri,+West+Bengal,+India";
 
-// PLACEHOLDER — replace with the real contact email (address only, no mailto:)
+// REAL — GoDaddy Professional Email mailbox (address only, no mailto:)
 window.EMAIL = "hello@livingwaterfarms.in";
