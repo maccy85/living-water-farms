@@ -18,7 +18,7 @@ window.INSTAGRAM_URL = "https://www.instagram.com/living_water_farms/";
 window.FACEBOOK_URL = "https://www.facebook.com/livingwaterfarms";
 
 // PLACEHOLDER — replace with the real YouTube channel URL
-window.YOUTUBE_URL = "https://www.youtube.com/@livingwaterfarms";
+window.YOUTUBE_URL = ""; // hidden for now; add the channel URL later to show the button
 
 // REAL — farm pin from Mac
 window.MAPS_URL = "https://maps.app.goo.gl/1eyRChTRqf2tUfWu5";
