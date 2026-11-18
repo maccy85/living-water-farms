@@ -14,7 +14,7 @@ window.WHATSAPP_MESSAGE = "Hi, I'd like to know more about Living Water Farms";
 // REAL — Instagram handle living_water_farms
 window.INSTAGRAM_URL = "https://www.instagram.com/living_water_farms/";
 
-// PLACEHOLDER — replace with the real Facebook page URL
+// REAL — Facebook page livingwaterfarms
 window.FACEBOOK_URL = "https://www.facebook.com/livingwaterfarms";
 
 // PLACEHOLDER — replace with the real YouTube channel URL
