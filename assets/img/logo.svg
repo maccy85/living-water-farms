@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Living Water Farms</title>
+  <defs>
+    <linearGradient id="lwf-water" x1="28" y1="16" x2="62" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3BA9B8"/>
+      <stop offset="1" stop-color="#146A7A"/>
+    </linearGradient>
+    <linearGradient id="lwf-leaf" x1="14" y1="24" x2="40" y2="66" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4CAD6E"/>
+      <stop offset="1" stop-color="#1E6A42"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="37.25" fill="#F4EEE3" stroke="#1B4D3A" stroke-width="2.5"/>
+  <!-- Leaf, tucked under the left of the drop -->
+  <path fill="url(#lwf-leaf)" d="M22 22 C10 36 10 54 26 66 C32 58 38 48 36 38 C34 30 30 26 22 22 Z"/>
+  <path fill="none" stroke="#0F3F28" stroke-width="1.15" stroke-linecap="round" opacity="0.45" d="M24 30 C26 42 28 52 28 62"/>
+  <!-- Water drop -->
+  <path fill="url(#lwf-water)" d="M46 14 C33 30 26 40 26 50 C26 62.2 35 70 46 70 C57 70 66 62.2 66 50 C66 40 59 30 46 14 Z"/>
+  <!-- Drop highlight -->
+  <path fill="#FFFFFF" opacity="0.38" d="M38 32 C36 38 36 44 40 46 C44 42 46 36 44 30 C42 28 39 29 38 32 Z"/>
+</svg>
