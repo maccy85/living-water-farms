@@ -389,3 +389,6 @@ h1 {
   .link:hover,
   .link:active { transform: none; }
 }
+
+/* Centre single-line labels when a button has no hint. */
+.link .label:not(:has(+ .hint)) { grid-row: 1 / span 2; }
