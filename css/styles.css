@@ -23,27 +23,36 @@
 }
 
 :root {
-  --cream: #faf3e0;
-  --cream-deep: #efe6cc;
-  --paper: #fffdf6;
+  --cream: #fff8e7;
+  --cream-deep: #f3e6c4;
+  --paper: #fffef9;
   --ink: #1a2b1d;
-  --muted: #3e5344;
-  --forest: #1f5130;
+  --muted: #37503a;
+  --forest: #163d23;
   --forest-deep: #163b23;
-  --leaf: #2a6a3c;
-  --gold: #d9a933;
+  --leaf: #247a38;
+  --leaf-bright: #3fa34d;
+  --gold: #f5c542;
+  --gold-soft: #ffe27a;
   --gold-deep: #8a6410;
   --water: #2f7fc1;
   --water-deep: #1f5f93;
-  --whatsapp: #1f5130;
-  --whatsapp-hover: #163b23;
+  --sky: #9ed6ef;
+  --meadow: #c8e89a;
+  --whatsapp: #1c7a3a;
+  --whatsapp-hover: #166433;
+  --instagram: linear-gradient(45deg, #f9ce34, #ee2a7b 52%, #6228d7);
+  --facebook: #1877f2;
+  --youtube: #c91f2a;
+  --maps: #2a6fb0;
+  --email: #e8b83a;
   --sand: #e6d7b3;
-  --line: rgba(31, 81, 48, 0.18);
+  --line: rgba(36, 122, 56, 0.16);
   --focus: #1f5f93;
-  --shadow: 0 8px 24px rgba(22, 59, 35, 0.08);
+  --shadow: 0 8px 22px rgba(22, 61, 35, 0.1);
   --font-display: Fraunces, "Source Serif Pro", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", "Source Sans Pro", "Segoe UI", system-ui, sans-serif;
-  --radius: 1.15rem;
+  --radius: 1.45rem;
   --max: 26.5rem;
 }
 
@@ -57,29 +66,91 @@ html,
 body { min-height: 100%; }
 
 body {
+  position: relative;
   margin: 0;
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.55;
   color: var(--ink);
   background:
-    radial-gradient(900px 520px at -10% -8%, rgba(47, 127, 193, 0.12), transparent 55%),
-    radial-gradient(800px 480px at 110% -4%, rgba(31, 81, 48, 0.14), transparent 52%),
-    radial-gradient(700px 480px at 50% -20%, rgba(217, 169, 51, 0.14), transparent 50%),
-    radial-gradient(640px 520px at 80% 110%, rgba(47, 127, 193, 0.1), transparent 55%),
-    var(--cream);
+    linear-gradient(
+      180deg,
+      #8ecdee 0%,
+      #c5e8f8 16%,
+      #fff4c8 36%,
+      #fff8e7 58%,
+      #e9f6c9 86%,
+      #c8e89a 100%
+    );
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22rem;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.4;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Ccircle cx='2' cy='2' r='1' fill='%231f5130' fill-opacity='0.18'/%3E%3C/svg%3E");
+  overflow: hidden;
+}
+
+.sun-glow {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  width: 24rem;
+  height: 24rem;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 213, 74, 0.85) 0%, rgba(255, 213, 74, 0.28) 42%, transparent 70%);
+}
+
+.sun {
+  position: absolute;
+  top: -0.4rem;
+  left: 50%;
+  width: 13.5rem;
+  height: 13.5rem;
+  transform: translateX(-50%);
+}
+
+.cloud {
+  position: absolute;
+  opacity: 0.72;
+  filter: drop-shadow(0 4px 8px rgba(31, 95, 147, 0.08));
+}
+
+.cloud-l {
+  top: 0.85rem;
+  left: 0;
+  width: 5.4rem;
+  height: 2.7rem;
+}
+
+.cloud-r {
+  top: 2.2rem;
+  right: 0;
+  width: 4.8rem;
+  height: 2.4rem;
+}
+
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9.5rem;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ground svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .skip {
@@ -88,16 +159,14 @@ body::before {
   top: -3rem;
   z-index: 10;
   padding: 0.5rem 0.8rem;
-  background: var(--forest);
-  color: var(--cream);
-  border-radius: 0.5rem;
+  background: var(--whatsapp);
+  color: #fff;
+  border-radius: 0.7rem;
   font-weight: 600;
   text-decoration: none;
 }
 
-.skip:focus {
-  top: 0.75rem;
-}
+.skip:focus { top: 0.75rem; }
 
 .page {
   position: relative;
@@ -107,31 +176,31 @@ body::before {
   min-height: 100dvh;
   width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
-  padding: 0.9rem 0 max(0.85rem, env(safe-area-inset-bottom));
+  padding: 1.6rem 0 7.25rem;
 }
 
 .header {
   text-align: center;
-  padding: 0.1rem 0 0.8rem;
+  padding: 1.3rem 0 1.15rem;
 }
 
 .logo {
   display: inline-block;
-  width: 10.25rem;
-  height: 10.25rem;
-  margin: 0 0 0.55rem;
-  filter: drop-shadow(0 8px 18px rgba(31, 81, 48, 0.18));
+  width: 11.25rem;
+  height: 11.25rem;
+  margin: 0 0 0.85rem;
+  filter: drop-shadow(0 10px 20px rgba(22, 61, 35, 0.18));
 }
 
 .logo img,
-.logo svg {
+.logo picture {
   display: block;
   width: 100%;
   height: 100%;
 }
 
 .eyebrow {
-  margin: 0 0 0.32rem;
+  margin: 0 0 0.35rem;
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
@@ -141,28 +210,28 @@ body::before {
 }
 
 h1 {
-  margin: 0 0 0.28rem;
+  margin: 0 0 0.3rem;
   font-family: var(--font-display);
   font-weight: 560;
-  font-size: clamp(1.75rem, 6.2vw, 2.2rem);
+  font-size: clamp(1.8rem, 6.2vw, 2.28rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--forest-deep);
 }
 
 .tagline {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.8rem;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 450;
-  font-size: 1.08rem;
+  font-size: 1.14rem;
   line-height: 1.35;
   color: var(--leaf);
 }
 
 .intro {
   margin: 0 auto;
-  max-width: 24rem;
+  max-width: 24.5rem;
   color: var(--muted);
   font-size: 1rem;
   text-wrap: pretty;
@@ -170,38 +239,45 @@ h1 {
 
 .links {
   display: grid;
-  gap: 0.55rem;
-  margin: 0.05rem 0 0.75rem;
+  gap: 0.7rem;
+  margin: 0.15rem 0 1.1rem;
 }
 
 .link {
   display: grid;
-  grid-template-columns: 1.6rem 1fr auto;
+  grid-template-columns: 2.55rem 1fr auto;
   grid-template-rows: auto auto;
-  column-gap: 0.85rem;
+  column-gap: 0.8rem;
   align-items: center;
-  min-height: 3.4rem;
-  padding: 0.72rem 0.95rem 0.72rem 1rem;
+  min-height: 3.6rem;
+  padding: 0.7rem 1rem 0.7rem 0.7rem;
   background: var(--paper);
   color: var(--forest-deep);
   text-decoration: none;
   border: 1.5px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: transform 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.45, 0.64, 1),
+    box-shadow 0.22s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .link .icon {
   grid-row: 1 / span 2;
-  display: flex;
-  width: 1.6rem;
-  height: 1.6rem;
-  color: var(--forest);
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--leaf);
 }
 
 .link .icon svg {
-  width: 100%;
-  height: 100%;
+  width: 1.28rem;
+  height: 1.28rem;
   fill: currentColor;
 }
 
@@ -215,7 +291,7 @@ h1 {
 
 .link .hint {
   grid-column: 2;
-  margin-top: 0.1rem;
+  margin-top: 0.12rem;
   font-size: 0.82rem;
   line-height: 1.3;
   color: var(--muted);
@@ -225,36 +301,49 @@ h1 {
 .link .chev {
   grid-column: 3;
   grid-row: 1 / span 2;
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.15rem;
+  height: 1.15rem;
   color: var(--leaf);
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
 .link:hover {
-  transform: translateY(-1px);
-  border-color: rgba(217, 169, 51, 0.7);
-  box-shadow: 0 12px 28px rgba(28, 43, 34, 0.12);
+  transform: translateY(-3px) scale(1.015);
+  border-color: rgba(245, 197, 66, 0.8);
+  box-shadow: 0 14px 30px rgba(22, 61, 35, 0.16);
 }
 
-.link:active { transform: translateY(0); }
+.link:active { transform: translateY(0) scale(0.985); }
 
 .link-whatsapp {
   background: var(--whatsapp);
-  color: #f7fffc;
+  color: #fff;
   border-color: transparent;
 }
 
-.link-whatsapp .icon,
-.link-whatsapp .chev,
-.link-whatsapp .hint { color: #e7f7f3; }
+.link-whatsapp .icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
 
-.link-whatsapp .hint { opacity: 0.88; }
+.link-whatsapp .chev,
+.link-whatsapp .hint { color: #e9f8ee; }
+
+.link-whatsapp .hint { opacity: 0.92; }
 
 .link-whatsapp:hover {
   background: var(--whatsapp-hover);
   border-color: transparent;
-  box-shadow: 0 12px 28px rgba(15, 110, 98, 0.28);
+  box-shadow: 0 14px 30px rgba(28, 122, 58, 0.32);
+}
+
+.link-instagram .icon { background: var(--instagram); }
+.link-facebook .icon { background: var(--facebook); }
+.link-youtube .icon { background: var(--youtube); }
+.link-maps .icon { background: var(--maps); }
+.link-email .icon {
+  background: var(--email);
+  color: var(--forest-deep);
 }
 
 .link:focus { outline: none; }
@@ -267,7 +356,7 @@ h1 {
 
 .footer {
   margin-top: auto;
-  padding-top: 0.5rem;
+  padding-top: 0.4rem;
   text-align: center;
   color: var(--muted);
   font-size: 0.86rem;
@@ -281,17 +370,18 @@ h1 {
 }
 
 @media (min-width: 720px) {
-  .page { padding-top: 0.45rem; padding-bottom: 0.4rem; }
-  .logo { width: 9.15rem; height: 9.15rem; margin-bottom: 0.4rem; }
-  .header { padding-bottom: 0.55rem; }
-  .links { gap: 0.48rem; margin-bottom: 0.45rem; }
-  h1 { font-size: 2rem; }
+  .page { padding-top: 2rem; padding-bottom: 7.5rem; }
+  .logo { width: 12.5rem; height: 12.5rem; }
+  .header { padding-top: 1.6rem; }
+  .sun { width: 16rem; height: 16rem; top: 0.2rem; }
+  .sun-glow { width: 28rem; height: 28rem; }
+  .cloud-l { top: 1.6rem; left: max(1rem, calc(50% - 18rem)); width: 8.5rem; height: 4.2rem; }
+  .cloud-r { top: 3rem; right: max(1rem, calc(50% - 17.5rem)); width: 7.4rem; height: 3.6rem; }
 }
 
 @media (min-height: 900px) {
-  .page { padding-top: 2.25rem; padding-bottom: 1.75rem; }
-  .logo { width: 13rem; height: 13rem; }
-  h1 { font-size: clamp(1.85rem, 6.5vw, 2.35rem); }
+  .page { padding-top: 2.5rem; }
+  .logo { width: 13.25rem; height: 13.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
