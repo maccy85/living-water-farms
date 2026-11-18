@@ -1,0 +1,289 @@
+@font-face {
+  font-family: Fraunces;
+  src: url("../assets/fonts/fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url("../assets/fonts/fraunces-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../assets/fonts/source-sans-3.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --cream: #f6f1e8;
+  --cream-deep: #e8dfd0;
+  --paper: #fffcf7;
+  --ink: #1c2b22;
+  --muted: #3d4f46;
+  --forest: #1b4d3a;
+  --forest-deep: #13382a;
+  --leaf: #2d6b4c;
+  --water: #1a7082;
+  --water-deep: #145866;
+  --whatsapp: #0f6e62;
+  --whatsapp-hover: #0c5a51;
+  --sand: #d9ccb6;
+  --line: rgba(27, 77, 58, 0.16);
+  --focus: #1a7082;
+  --shadow: 0 8px 24px rgba(28, 43, 34, 0.08);
+  --font-display: Fraunces, "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Source Sans Pro", "Segoe UI", system-ui, sans-serif;
+  --radius: 1.15rem;
+  --max: 26.5rem;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+html,
+body { min-height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background:
+    radial-gradient(900px 520px at -10% -8%, rgba(26, 112, 130, 0.13), transparent 55%),
+    radial-gradient(800px 480px at 110% -4%, rgba(45, 107, 76, 0.16), transparent 52%),
+    radial-gradient(640px 520px at 80% 110%, rgba(26, 112, 130, 0.1), transparent 55%),
+    var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Ccircle cx='2' cy='2' r='1' fill='%231b4d3a' fill-opacity='0.18'/%3E%3C/svg%3E");
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 0.8rem;
+  background: var(--forest);
+  color: var(--cream);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: 0.75rem;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 max(2rem, env(safe-area-inset-bottom));
+}
+
+.header {
+  text-align: center;
+  padding: 0.5rem 0 1.5rem;
+}
+
+.logo {
+  display: inline-block;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 0 1.15rem;
+  filter: drop-shadow(0 6px 14px rgba(27, 77, 58, 0.12));
+}
+
+.logo img,
+.logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--water);
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--forest-deep);
+}
+
+.tagline {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 450;
+  font-size: 1.08rem;
+  line-height: 1.35;
+  color: var(--leaf);
+}
+
+.intro {
+  margin: 0 auto;
+  max-width: 24rem;
+  color: var(--muted);
+  font-size: 1rem;
+  text-wrap: pretty;
+}
+
+.links {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.25rem 0 2rem;
+}
+
+.link {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.85rem;
+  align-items: center;
+  min-height: 3.65rem;
+  padding: 0.85rem 1rem 0.85rem 1.05rem;
+  background: var(--paper);
+  color: var(--forest-deep);
+  text-decoration: none;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.16s ease, background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.link .icon {
+  grid-row: 1 / span 2;
+  display: flex;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--forest);
+}
+
+.link .icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.link .label {
+  grid-column: 2;
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.link .hint {
+  grid-column: 2;
+  margin-top: 0.1rem;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.link .chev {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--leaf);
+  opacity: 0.7;
+}
+
+.link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(27, 77, 58, 0.32);
+  box-shadow: 0 12px 28px rgba(28, 43, 34, 0.12);
+}
+
+.link:active { transform: translateY(0); }
+
+.link-whatsapp {
+  background: var(--whatsapp);
+  color: #f7fffc;
+  border-color: transparent;
+}
+
+.link-whatsapp .icon,
+.link-whatsapp .chev,
+.link-whatsapp .hint { color: #e7f7f3; }
+
+.link-whatsapp .hint { opacity: 0.88; }
+
+.link-whatsapp:hover {
+  background: var(--whatsapp-hover);
+  border-color: transparent;
+  box-shadow: 0 12px 28px rgba(15, 110, 98, 0.28);
+}
+
+.link:focus { outline: none; }
+
+.link:focus-visible,
+.skip:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.footer p { margin: 0.2rem 0; }
+
+.footer .place {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 720px) {
+  .page { padding-top: 3.25rem; padding-bottom: 3rem; }
+  .logo { width: 6.25rem; height: 6.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link { transition: none; }
+  .link:hover,
+  .link:active { transform: none; }
+}
