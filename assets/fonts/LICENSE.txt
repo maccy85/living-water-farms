@@ -1,0 +1,15 @@
+These typefaces are included as static assets for Living Water Farms.
+
+Fraunces
+  Copyright 2020 The Fraunces Project Authors
+  (https://github.com/undercasetype/Fraunces)
+  Licensed under the SIL Open Font License, Version 1.1.
+  https://openfontlicense.org
+
+Source Sans 3
+  Copyright 2010–2020 Adobe (http://www.adobe.com/),
+  with Reserved Font Name 'Source'.
+  Licensed under the SIL Open Font License, Version 1.1.
+  https://openfontlicense.org
+
+The full SIL Open Font License text is at https://openfontlicense.org/documents/OFL.txt
