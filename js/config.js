@@ -20,8 +20,8 @@ window.FACEBOOK_URL = "https://www.facebook.com/livingwaterfarms";
 // PLACEHOLDER — replace with the real YouTube channel URL
 window.YOUTUBE_URL = "https://www.youtube.com/@livingwaterfarms";
 
-// PLACEHOLDER — replace with the farm's Google Maps place or pin link
-window.MAPS_URL = "https://maps.google.com/?q=Siliguri,+West+Bengal,+India";
+// REAL — farm pin from Mac
+window.MAPS_URL = "https://maps.app.goo.gl/1eyRChTRqf2tUfWu5";
 
 // REAL — GoDaddy Professional Email mailbox (address only, no mailto:)
 window.EMAIL = "hello@livingwaterfarms.in";
