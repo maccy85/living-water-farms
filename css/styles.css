@@ -392,3 +392,5 @@ h1 {
 
 /* Centre single-line labels when a button has no hint. */
 .link .label:not(:has(+ .hint)) { grid-row: 1 / span 2; }
+
+[hidden] { display: none !important; }
